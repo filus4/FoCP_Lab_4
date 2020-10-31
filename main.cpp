@@ -11,5 +11,16 @@ int main() {
 
     cout << ptr << endl;
 
+    cout << "Memory address of variable: " << &variable << endl;
+    cout << "Memory address of ptr: " << &ptr << endl;
+
+    ptr = &variable;
+
+    cout << *ptr << endl;
+
+    *ptr = 25; // It is the same if we did variable = 25;
+
+    cout << variable << endl;
+    
     return 0;
 }
