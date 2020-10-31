@@ -1,23 +1,36 @@
 #include <iostream>
-#include <array>
+#include <vector>
 
 using namespace std;
 
+void print_contents_by_pointer(vector<int> *input) {
+    for(int i = 0; i < input->size(); i++) {
+        cout << input->at(i) << endl;
+    }
+}
+
+void print_contents_by_refference(vector<int> &input) {
+    for(int i = 0; i < input.size(); i++) {
+        cout << input[i] << endl;
+    }
+}
+
 int main() {
 
-    array<int, 4> numbers;
+    int size;
 
-    for (int i = 0; i < 4; i++) {
-        numbers[i] = i;
-//        cout << &numbers[i] << endl;
+    cout << "Provide a size for your array: " << endl;
+    cin >> size;
+
+    vector<int> numbers;
+
+    for (int i = 0; i <= size; i++) {
+        numbers.push_back(i);
+
     }
 
-    int *ptr_numbers = &numbers[0];
-    
-    for (int i = 0; i < 4; i++) {
-        std::cout << *ptr_numbers << std::endl;
-        ++ptr_numbers;
-    }
+    //print_contents_by_pointer(&numbers);
+    print_contents_by_refference(numbers);
     
     return 0;
 }
