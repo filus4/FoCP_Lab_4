@@ -1,26 +1,23 @@
 #include <iostream>
+#include <array>
 
 using namespace std;
 
 int main() {
 
-    int variable = 8;
+    array<int, 4> numbers;
 
-    int* ptr; // empty ---> null pointer
-    // cout << *ptr << endl; -- Don't uncomment, will blow up!
+    for (int i = 0; i < 4; i++) {
+        numbers[i] = i;
+//        cout << &numbers[i] << endl;
+    }
 
-    cout << ptr << endl;
-
-    cout << "Memory address of variable: " << &variable << endl;
-    cout << "Memory address of ptr: " << &ptr << endl;
-
-    ptr = &variable;
-
-    cout << *ptr << endl;
-
-    *ptr = 25; // It is the same if we did variable = 25;
-
-    cout << variable << endl;
+    int *ptr_numbers = &numbers[0];
+    
+    for (int i = 0; i < 4; i++) {
+        std::cout << *ptr_numbers << std::endl;
+        ++ptr_numbers;
+    }
     
     return 0;
 }
